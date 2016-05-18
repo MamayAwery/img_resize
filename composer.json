@@ -1,0 +1,19 @@
+{
+    "name": "awery/img_resize",
+    "description": "img resize by system imagemagick application",
+    "keywords": [
+        "imagemagick",
+        "convert",
+        "resize"
+    ],
+    "license": "GPL",
+    "type": "library",
+    "homepage": "https://github.com/Notan/img_resize",
+    "require": {
+        "php": ">=5.2.4",
+    },
+    "autoload": {
+        "files": ["img_resize.php"]
+    }
+}
+
