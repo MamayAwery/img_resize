@@ -6,7 +6,7 @@
         "convert",
         "resize"
     ],
-    "license": "GPL",
+    "license": "proprietary",
     "type": "library",
     "homepage": "https://github.com/Notan/img_resize",
     "require": {
