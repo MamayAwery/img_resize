@@ -32,6 +32,7 @@ function img_resize($fname,$w,$h,$target,$params) {
     $height = round($img[1]/$w_delta);
     $h_delta = $img[1]/$h;
     $width = round($img[0]/$h_delta);
+    $command = '';
 
 	switch (true) {
         case (int)@$params['scale_up']==1:
@@ -84,6 +85,7 @@ function img_resize($fname,$w,$h,$target,$params) {
 			;
 		break;
 	}
+    $command .= ' -colorspace RGB';
 #    echo '-------'.IMCONVERT.$command.' '.$fname.' '.$target."\n";	
 #    @file_put_contents('tmp/resize.log',IMCONVERT.$command.' '.$fname.' '.$target."\n".print_r($params,true));
 	system(IMCONVERT.$command.' '.$fname.' '.$target);
