@@ -112,8 +112,7 @@ function img_resize($fname,$w,$h,$target,$params) {
                 break;
         }
         $command .= ' -colorspace SRGB';
-#    echo '-------'.IMCONVERT.$command.' '.$fname.' '.$target."\n";
-#    @file_put_contents('tmp/resize.log',IMCONVERT.$command.' '.$fname.' '.$target."\n".print_r($params,true));
+
         system(IMCONVERT.$command.' '.$fname.' '.$target);
 
         if ( isset($is_temp) ) {
