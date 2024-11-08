@@ -8,7 +8,7 @@
     ],
     "license": "proprietary",
     "type": "library",
-    "homepage": "https://github.com/Notan/img_resize",
+    "homepage": "https://github.com/MamayAwery/img_resize",
     "require": {
         "php": ">=8.0"
     },
