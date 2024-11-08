@@ -19,7 +19,23 @@ img_resize('8march.jpg',400,300,'test_resize12.jpg',array('crop'=>1));
 //ob_start();
 
 function img_resize($fname,$w,$h,$target,$params) {
+    $filename = $fname;
+    if ( defined('APPLICATION_PATH') && filter_var($fname, FILTER_VALIDATE_URL)!==false ) {
+        $tmpDir = dirname(APPLICATION_PATH).'/tmp/img_resize/';
+        if ( !file_exists($tmpDir) ) {
+            mkdir($tmpDir, 0775, true);
+        }
+
+        $filename = tempnam($tmpDir, 'img_resize_');
+        file_put_contents($filename, file_get_contents($fname));
+        $is_temp = true;
+    }
+
     $img = getimagesize($fname);
+
+    if ( is_bool($img) )
+        return false;
+
 	$bordercolor = isset($params['bordercolor'])?$params['bordercolor']:'white';
 
 #если nomagnifying==1 и картинка меньше чем нужно - то не увеличиваем
@@ -89,6 +105,10 @@ function img_resize($fname,$w,$h,$target,$params) {
 #    echo '-------'.IMCONVERT.$command.' '.$fname.' '.$target."\n";	
 #    @file_put_contents('tmp/resize.log',IMCONVERT.$command.' '.$fname.' '.$target."\n".print_r($params,true));
 	system(IMCONVERT.$command.' '.$fname.' '.$target);
+
+    if ( isset($is_temp) ) {
+        @unlink($filename);
+    }
 }
 
 //$ss = ob_get_contents();
