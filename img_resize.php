@@ -41,7 +41,7 @@ function img_resize($fname,$w,$h,$target,$params) {
             $is_temp = true;
         }
 
-        $img = getimagesize($fname);
+        $img = getimagesize($filename);
 
         if ( is_bool($img) )
             return false;
