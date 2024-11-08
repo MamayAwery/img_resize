@@ -10,7 +10,7 @@
     "type": "library",
     "homepage": "https://github.com/Notan/img_resize",
     "require": {
-        "php": ">=5.2.4"
+        "php": ">=8.0"
     },
     "autoload": {
         "files": ["img_resize.php"]
