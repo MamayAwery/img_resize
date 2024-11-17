@@ -46,10 +46,10 @@ function img_resize($fname,$w,$h,$target,$params) {
         if ( is_bool($img) )
             return false;
 
-        $bordercolor = isset($params['bordercolor'])?$params['bordercolor']:'white';
+        $bordercolor = $params['bordercolor'] ?? 'white';
 
 #если nomagnifying==1 и картинка меньше чем нужно - то не увеличиваем
-        if (@ $params['nomagnifying'] == 1 && $img[0]<$w && $img[1]<$h ) {
+        if ( isset($params['nomagnifying']) && $params['nomagnifying'] == 1 && $img[0]<$w && $img[1]<$h ) {
             $w = $img[0];
             $h = $img[1];
         }
